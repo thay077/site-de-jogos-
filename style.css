@@ -1,81 +1,202 @@
+/* Resetando algumas margens e preenchimentos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Gradiente de fundo dinâmico */
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #9b59b6, #333);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: white;
+    padding: 60px 20px 20px;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Animação do Gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Fade In ao carregar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Barra de navegação fixa */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: black;
     color: white;
-    padding: 20px;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-header .logo h1 {
-    color: #9b59b6; /* roxo */
+header:hover {
+    background-color: #9b59b6;
 }
 
 nav ul {
+    display: flex;
+    justify-content: center;
     list-style-type: none;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    margin: 0 20px;
+    transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 18px;
 }
 
 nav ul li a:hover {
+    color: #f1f1f1;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
     color: #9b59b6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.games h2 {
-    color: #9b59b6;
-    margin-bottom: 10px;
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.game-list {
-    display: flex;
-    gap: 20px;
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
+h3 {
+    font-size: 1.8rem;
+    color: #8e44ad;
+}
+
+/* Cards de Jogos */
 .game {
     text-align: center;
-    width: 200px;
+    width: 220px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.game img {
-    width: 100%;
-    border-radius: 10px;
+.game:hover {
+    background-color: #444;
+    transform: translateY(-5px); /* Leve movimento para cima */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.game h3 {
+    color: #9b59b6;
+    margin-bottom: 15px;
+}
+
+.game p {
+    color: #ddd;
+    margin-bottom: 15px;
 }
 
 .game a {
     display: block;
-    margin-top: 10px;
     background-color: #9b59b6;
     color: white;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .game a:hover {
     background-color: #8e44ad;
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
 }
 
+/* Lista de Jogos */
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.game-list::after {
+    content: "";
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+}
+
+.game-list:hover {
+    transform: translateY(-10px); /* Sobe um pouco quando em movimento */
+}
+
+/* Responsividade: Ajustes para telas pequenas */
+@media (max-width: 768px) {
+    .game-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Rodapé */
 footer {
     text-align: center;
     margin-top: 40px;
     color: #aaa;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 20px 0;
+}
+
+footer a {
+    color: #9b59b6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
