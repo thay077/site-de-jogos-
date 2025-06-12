@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header .logo h1 {
+    color: #9b59b6; /* roxo */
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #9b59b6;
+}
+
+.games h2 {
+    color: #9b59b6;
+    margin-bottom: 10px;
+}
+
+.game-list {
+    display: flex;
+    gap: 20px;
+}
+
+.game {
+    text-align: center;
+    width: 200px;
+}
+
+.game img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.game a {
+    display: block;
+    margin-top: 10px;
+    background-color: #9b59b6;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.game a:hover {
+    background-color: #8e44ad;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #aaa;
+}
